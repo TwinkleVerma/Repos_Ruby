@@ -1,14 +1,40 @@
-$a = 0
-$b = 0
-$ch = 0
 class Calculator
 	def initialize
+		$a = 0
+		$b = 0
+		$ch = 0
+	end
+	def init
 		puts "1. Addition\n"
 		puts "2. Division\n"
 		puts "3. Multiplication\n"
 		puts "4. Modulus\n"
 		puts "5. Subtraction\n"
 		$ch = gets
+		case $ch.to_i
+		when 1
+			input
+			setValues
+			add
+		when 2
+			input
+			setValues
+			div
+		when 3
+			input
+			setValues
+			mul
+		when 4
+			input
+			setValues
+			mod
+		when 5
+			input
+			setValues
+			subt
+	else
+		puts "Invalid Choice"	
+end	
 	end
 	def input()
 		puts "Enter two values"
@@ -48,27 +74,4 @@ class Calculator
 	end
 end
 obj = Calculator.new 
-case $ch.to_i
-	when 1
-		obj.input
-		obj.setValues
-		obj.add
-	when 2
-		obj.input
-		obj.setValues
-		obj.div
-	when 3
-		obj.input
-		obj.setValues
-		obj.mul
-	when 4
-		obj.input
-		obj.setValues
-		obj.mod
-	when 5
-		obj.input
-		obj.setValues
-		obj.subt
-	else
-		puts "Invalid Choice"	
-end	
+obj.init
