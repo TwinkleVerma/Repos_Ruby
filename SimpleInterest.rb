@@ -1,15 +1,29 @@
-$ch = ""
-$p = 0
-$r = 0
-$t = 0
-$si = 0 
-$ci = 0
 class SimpleInterest
 	def initialize()
+		$ch = ""
+		$p = 0
+		$r = 0
+		$t = 0
+		$si = 0 
+		$ci = 0
+	end
+	def init
 		puts "1. Simple Interest\n"
 		puts "2. Compound Interest\n"
 		puts "Enter your choice"	
 		$ch = gets.chomp
+		case $ch
+		when "si"
+			input
+			setValues
+			si
+		when "ci"
+			input
+			setValues
+			ci
+		else
+			puts "Wrong Input"
+		end
 	end
 	def input
 		puts "Enter Principle,Rate & Time"
@@ -50,15 +64,4 @@ class SimpleInterest
 	end
 end
 $obj = SimpleInterest.new()
-case $ch
-	when "si"
-		$obj.input
-		$obj.setValues
-		$obj.si
-	when "ci"
-		$obj.input
-		$obj.setValues
-		$obj.ci
-	else
-		puts "Wrong Input"
-	end
+$obj.init
